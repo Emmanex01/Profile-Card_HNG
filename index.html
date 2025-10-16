@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profileCard.css"/>
+    <title>Profile Card Component</title>
+</head>
+<body>
+    <article data-testid="test-profile-card">
+        <div class="profile-header">
+            <figure>
+                <img data-testid="test-user-avatar" 
+                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" 
+                     alt="Profile photo of Alex Johnson">
+                     <input type="file" class="avatar-upload"/>
+                <figcaption>Alex Johnson - Frontend Developer</figcaption>
+            </figure>
+            
+            <div class="profile-info">
+                <h2 data-testid="test-user-name">Alex Johnson</h2>
+                <p data-testid="test-user-bio">
+                    Passionate frontend developer with 5+ years of experience building responsive, 
+                    accessible web applications. I love creating intuitive user interfaces and 
+                    solving complex problems with clean, efficient code. Currently focused on 
+                    React and modern CSS techniques.
+                </p>
+                
+                <div class="time-container">
+                    Current time (ms): <span data-testid="test-user-time" id="current-time"></span>
+                </div>
+                
+                <nav data-testid="test-user-social-links">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/alexjohnson" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               data-testid="test-user-social-github">
+                                GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/alexjohnson" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               data-testid="test-user-social-twitter">
+                                Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/alexjohnson" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               data-testid="test-user-social-linkedin">
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://codepen.io/alexjohnson" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               data-testid="test-user-social-codepen">
+                                CodePen
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="profile-details">
+            <section>
+                <h3>Hobbies</h3>
+                <ul data-testid="test-user-hobbies">
+                    <li>Photography</li>
+                    <li>Hiking & Outdoor Adventures</li>
+                    <li>Playing Guitar</li>
+                    <li>3D Printing</li>
+                    <li>Board Games</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Dislikes</h3>
+                <ul data-testid="test-user-dislikes">
+                    <li>Poorly documented code</li>
+                    <li>Slow loading websites</li>
+                    <li>Inaccessible UI components</li>
+                    <li>Over-engineered solutions</li>
+                </ul>
+            </section>
+        </div>
+    </article>
+
+    <script>
+        // Update time in milliseconds
+        function updateTime() {
+            const timeElement = document.getElementById('current-time');
+            const currentTime = Date.now();
+            timeElement.textContent = currentTime;
+            timeElement.classList.add('time-update');
+            
+            setTimeout(() => {
+                timeElement.classList.remove('time-update');
+            }, 500);
+        }
+        
+        // Initial update
+        updateTime();
+        
+        // Update time every second
+        setInterval(updateTime, 1000);
+        
+        // Handle avatar upload functionality
+        const avatarElement = document.querySelector('[data-testid="test-user-avatar"]');
+        const avatarUploadInput = document.querySelector('.avatar-upload');
+        
+        // In a real implementation, you would handle file upload and display
+        // This is just a demonstration of the concept
+        function handleAvatarUpload(event) {
+            const file = event.target.files[0];
+            console.log('Selected file:', file);
+            if (!file) {
+                console.log('No file selected');
+                avatarElement.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?...";
+                return;
+            }
+
+            if (!file.type.startsWith('image/')) {
+                alert('Please select an image file.');
+                return;
+            }
+
+            const oldUrl = avatarElement.src;
+            const localUrl = URL.createObjectURL(file);
+            avatarElement.src = localUrl;
+
+            if (oldUrl.startsWith("blob:")) {
+                URL.revokeObjectURL(oldUrl);
+            }
+
+            console.log('Avatar updated:', file.name);
+        }
+
+        
+        // For demonstration, we'll add a click handler to show the concept
+        avatarUploadInput.addEventListener('click', handleAvatarUpload);
+    </script>
+</body>
+</html>
