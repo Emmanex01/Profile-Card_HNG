@@ -33,7 +33,7 @@ A responsive, accessible profile card component built with semantic HTML, modern
 ### Quick Start (Direct Access)
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/profile-card-component.git
+git clone git@github.com:Emmanex01/Profile-Card_HNG.git
 
 # Open index.html in your browser
 open index.html
