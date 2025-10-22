@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - My Portfolio</title>
+    <link rel="stylesheet" href="styles/profileCard.css">
+    <link rel="stylesheet" href="styles/about.css">
+</head>
+<body>
+     <header>
+        <nav data-testid="test-sidebar-navigation">
+            <div class="nav-sidebar-container">
+                <ul class="nav-sidebar-menu">
+                    <li><a href="#" onclick="hideSidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                    <li><a href="index.html" class="nav-logo">My Portfolio</a></li>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Me</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <nav data-testid="test-navigation">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-logo">My Portfolio</a></li>
+                    <li class="hideOnMobile"><a href="index.html" class="nav-link active">Home</a></li>
+                    <li class="hideOnMobile"><a href="about.html" class="nav-link">About Me</a></li>
+                    <li class="hideOnMobile"><a href="contact.html" class="nav-link">Contact Us</a></li>
+                    <li><a href="#" class="hideOnDesktop" onclick=showSidebar() ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main data-testid="test-about-page">
+        <header class="about-header">
+            <h1>About Me</h1>
+            <p class="subtitle">My journey, goals, and reflections in this program</p>
+        </header>
+
+        <section class="about-section" data-testid="test-about-bio">
+            <h2>My Bio</h2>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>I'm a passionate developer with a strong interest in creating accessible and user-friendly web applications. My journey in web development began several years ago, and I've been continuously learning and adapting to new technologies.</p>
+                    <p>I believe in the power of clean code, semantic HTML, and inclusive design. Every project is an opportunity to create something meaningful that can make people's lives better.</p>
+                </div>
+                <div class="image-content">
+                    <!-- Add your bio image here -->
+                    <div class="placeholder-image">Bio Image</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" data-testid="test-about-goals">
+            <h2>Goals in This Program</h2>
+            <div class="goals-list">
+                <article class="goal-card">
+                    <h3>Master Advanced CSS</h3>
+                    <p>Deepen my understanding of CSS Grid, Flexbox, and responsive design principles to create flawless layouts across all devices.</p>
+                </article>
+                <article class="goal-card">
+                    <h3>JavaScript Proficiency</h3>
+                    <p>Enhance my JavaScript skills, particularly in modern ES6+ features, async programming, and performance optimization.</p>
+                </article>
+                <article class="goal-card">
+                    <h3>Accessibility Expertise</h3>
+                    <p>Become an expert in web accessibility standards (WCAG) to build applications that everyone can use regardless of abilities.</p>
+                </article>
+                <article class="goal-card">
+                    <h3>Project Architecture</h3>
+                    <p>Learn to structure large-scale applications with maintainable, scalable code architecture and best practices.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about-section" data-testid="test-about-confidence">
+            <h2>Areas of Low Confidence</h2>
+            <div class="confidence-content">
+                <p>While I'm comfortable with many aspects of web development, there are areas where I'm actively working to improve:</p>
+                <ul>
+                    <li>
+                        <strong>Advanced JavaScript Patterns:</strong> Complex design patterns and their practical applications in large codebases
+                    </li>
+                    <li>
+                        <strong>Performance Optimization:</strong> Deep understanding of browser rendering and advanced optimization techniques
+                    </li>
+                    <li>
+                        <strong>Cross-Browser Compatibility:</strong> Handling edge cases and inconsistencies across different browsers
+                    </li>
+                    <li>
+                        <strong>Testing Strategies:</strong> Comprehensive testing approaches beyond basic unit tests
+                    </li>
+                </ul>
+                <p>I see these challenges as opportunities for growth and I'm committed to addressing them throughout this program.</p>
+            </div>
+        </section>
+
+        <section class="about-section" data-testid="test-about-future-note">
+            <h2>Note to Future Self</h2>
+            <blockquote class="future-note">
+                <p>"Remember why you started this journey. The late nights debugging, the moments of frustration when things don't work, and the joy when they finally do - they're all part of the process.</p>
+                <p>Stay curious, keep learning, and never underestimate the power of clean, semantic code. The web should be accessible to everyone, and your work contributes to that mission.</p>
+                <p>When you face challenges, take a step back, breathe, and remember that every expert was once a beginner. Your persistence will pay off."</p>
+            </blockquote>
+        </section>
+
+        <section class="about-section" data-testid="test-about-extra">
+            <h2>Extra Thoughts</h2>
+            <div class="extra-content">
+                <p>This program represents more than just technical learning for me. It's about:</p>
+                <ul>
+                    <li>Building a foundation for lifelong learning in web development</li>
+                    <li>Connecting with a community of like-minded developers</li>
+                    <li>Creating projects that solve real problems</li>
+                    <li>Developing the discipline to write quality code under constraints</li>
+                </ul>
+                <p>I'm excited to look back at this page in the future and see how far I've come. Each line of code, each solved bug, and each completed project brings me closer to becoming the developer I aspire to be.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>

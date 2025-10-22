@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="profileCard.css"/>
+    <link rel="stylesheet" href="./styles/profileCard.css"/>
     <title>Profile Card Component</title>
 </head>
 <body>
+    <header>
+        <nav data-testid="test-sidebar-navigation">
+            <div class="nav-sidebar-container">
+                <ul class="nav-sidebar-menu">
+                    <li><a href="#" onclick="hideSidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                    <li><a href="index.html" class="nav-logo">My Portfolio</a></li>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Me</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <nav data-testid="test-navigation">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-logo">My Portfolio</a></li>
+                    <li class="hideOnMobile"><a href="index.html" class="nav-link active">Home</a></li>
+                    <li class="hideOnMobile"><a href="about.html" class="nav-link">About Me</a></li>
+                    <li class="hideOnMobile"><a href="contact.html" class="nav-link">Contact Us</a></li>
+                    <li><a href="#" class="hideOnDesktop" onclick=showSidebar() ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <article data-testid="test-profile-card">
         <div class="profile-header">
             <figure>
@@ -93,59 +118,8 @@
         </div>
     </article>
 
-    <script>
-        // Update time in milliseconds
-        function updateTime() {
-            const timeElement = document.getElementById('current-time');
-            const currentTime = Date.now();
-            timeElement.textContent = currentTime;
-            timeElement.classList.add('time-update');
-            
-            setTimeout(() => {
-                timeElement.classList.remove('time-update');
-            }, 500);
-        }
-        
-        // Initial update
-        updateTime();
-        
-        // Update time every second
-        setInterval(updateTime, 1000);
-        
-        // Handle avatar upload functionality
-        const avatarElement = document.querySelector('[data-testid="test-user-avatar"]');
-        const avatarUploadInput = document.querySelector('.avatar-upload');
-        
-        // In a real implementation, you would handle file upload and display
-        // This is just a demonstration of the concept
-        function handleAvatarUpload(event) {
-            const file = event.target.files[0];
-            console.log('Selected file:', file);
-            if (!file) {
-                console.log('No file selected');
-                avatarElement.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?...";
-                return;
-            }
-
-            if (!file.type.startsWith('image/')) {
-                alert('Please select an image file.');
-                return;
-            }
-
-            const oldUrl = avatarElement.src;
-            const localUrl = URL.createObjectURL(file);
-            avatarElement.src = localUrl;
-
-            if (oldUrl.startsWith("blob:")) {
-                URL.revokeObjectURL(oldUrl);
-            }
-
-            console.log('Avatar updated:', file.name);
-        }
-
-        
-        // For demonstration, we'll add a click handler to show the concept
-        avatarUploadInput.addEventListener('change', handleAvatarUpload);
+    <script src="./scripts/profileCard.js">
+       
     </script>
 </body>
 </html>
